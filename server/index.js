@@ -1,6 +1,9 @@
 import express from 'express';
 
-const port = 9000;
+import config from './configuration/config.js';
+
+const { server } = config;
+const { hostname, port } = server;
 
 const app = express();
 
@@ -19,5 +22,5 @@ app.use((req, res) => {
 });
 
 app.listen(port, () => {
-    console.log(`Server is running on ${port}`);
+    console.log(`Server is running on ${hostname}:${port}`);
 });
