@@ -1,3 +1,4 @@
+import cors from 'cors';
 import express from 'express';
 
 import config from './configuration/config.js';
@@ -7,6 +8,7 @@ const { server } = config;
 const { hostname, port } = server;
 
 const app = express();
+app.use(cors());
 
 // Routes
 app.use('/photos', photosRouter);
