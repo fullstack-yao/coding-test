@@ -1,6 +1,7 @@
 import express from 'express';
 
 import config from './configuration/config.js';
+import photosRouter from './routes/photos.js';
 
 const { server } = config;
 const { hostname, port } = server;
@@ -8,9 +9,7 @@ const { hostname, port } = server;
 const app = express();
 
 // Routes
-app.use('/photos', (req, res) => {
-    res.send('Hello');
-});
+app.use('/photos', photosRouter);
 
 // Error handling
 app.use((req, res) => {
