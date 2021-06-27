@@ -11,7 +11,7 @@ interface ConfigType {
     PHOTO_CATEGORIES: ['cat', 'shark'],
     FEATURES: {
         cycleNavEnabled: true,
-        numberIndicatorEnabled: true,
+        numberIndicatorEnabled: true
     }
   };
 
