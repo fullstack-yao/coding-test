@@ -10,7 +10,8 @@ interface ConfigType {
     DEFAULT_PHOTO_CATEGORY: 'cat',
     PHOTO_CATEGORIES: ['cat', 'shark'],
     FEATURES: {
-        cycleNavEnabled: true
+        cycleNavEnabled: true,
+        numberIndicatorEnabled: true,
     }
   };
 

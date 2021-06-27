@@ -1,7 +1,9 @@
-import React, { useState, FC } from "react";
-import { Slide, makeStyles, SlideProps, Grid } from "@material-ui/core";
+import { useState, useContext, FC } from "react";
+import { Slide, makeStyles, SlideProps, Grid, Typography } from "@material-ui/core";
 
+import AppContext from '../../AppContext';
 import ArrowNav from "../ArrowNav";
+import config from '../../configuration';
 import PhotoCard from "../PhotoCard";
 
 const PhotoCarousel: FC = (props: any) => {
@@ -19,12 +21,19 @@ const PhotoCarousel: FC = (props: any) => {
       alignItems: 'center',
       justifyContent: 'flex-start'
     },
+    indicator: {
+      display: 'flex',
+      justifyContent: 'center'
+    }
   }));
 
   const classes = useStyles();
 
-  const [index, setIndex] = useState<number>(0);
+  const { photoList } = useContext(AppContext);
+  const photoNum = photoList.length;
+  const numberIndicatorEnabled = config.FEATURES && config.FEATURES.numberIndicatorEnabled;
 
+  const [index, setIndex] = useState<number>(0);
   const [slideIn, setSlideIn] = useState(true);
   const [slideDirection, setSlideDirection] = useState<SlideProps["direction"]>("left");
 
@@ -56,6 +65,13 @@ const PhotoCarousel: FC = (props: any) => {
           {...arrowNavProps}
         />
       </Grid>
+      {numberIndicatorEnabled &&
+        <Grid item xs={12}>
+          <Typography variant="subtitle1" className={classes.indicator}>
+            {`${index + 1}/${photoNum}`}
+          </Typography>
+        </Grid>
+      }
     </Grid>
   );
 };
