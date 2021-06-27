@@ -1,10 +1,14 @@
-import { useContext, FC } from "react";
+import { FC } from "react";
 import { makeStyles } from "@material-ui/core";
-import AppContext from '../../AppContext';
 
 import Button from '@material-ui/core/Button';
 
-const TopBar: FC = () => {
+interface ITopBar {
+  photoCategory: string;
+  setPhotoCategory: (value: string) => void;
+}
+
+const TopBar: FC<ITopBar> = ({photoCategory, setPhotoCategory}) => {
   const useStyles = makeStyles(() => ({
     container: {
       display: 'flex',
@@ -18,8 +22,6 @@ const TopBar: FC = () => {
   }));
 
   const classes = useStyles();
-
-  const { photoCategory, setPhotoCategory } = useContext(AppContext);
 
   const catsColor = photoCategory !== 'shark' ? 'primary' : 'default';
   const sharksColor = photoCategory !== 'cat' ? 'primary' : 'default';

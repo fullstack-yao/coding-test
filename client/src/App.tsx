@@ -8,8 +8,6 @@ import TopBar from './components/TopBar';
 
 interface AppDataType {
   photoList: string[];
-  photoCategory: string;
-  setPhotoCategory: (value: string) => void;
 }
 
 const App: FC = () => {
@@ -35,11 +33,7 @@ const App: FC = () => {
 
   const { PHOTOS_URI, DEFAULT_PHOTO_CATEGORY, PHOTO_CATEGORIES } = config;
   const [ photoCategory, setPhotoCategory ] = useState<string>(DEFAULT_PHOTO_CATEGORY);
-  const [ appData, setAppData ] = useState<AppDataType>({
-    photoList: [],
-    photoCategory,
-    setPhotoCategory
-  });
+  const [ appData, setAppData ] = useState<AppDataType>({photoList: []});
   const [ isLoading, setIsLoading ] = useState<boolean>(true);
 
   useEffect(() => {
@@ -54,9 +48,7 @@ const App: FC = () => {
       .then(
         result => {
           setAppData({
-            photoList: result,
-            photoCategory,
-            setPhotoCategory
+            photoList: result
           });
           setTimeout(() => {
             setIsLoading(false);
@@ -65,9 +57,7 @@ const App: FC = () => {
         error => {
           setIsLoading(false);
           setAppData({
-            photoList: [],
-            photoCategory,
-            setPhotoCategory
+            photoList: []
           });
         }
       )
@@ -80,7 +70,10 @@ const App: FC = () => {
     <AppContext.Provider value={appData}>
       <Grid container spacing={1} className={classes.root} justify="center">
         <Grid item xs={12} className={classes.gridItem}>
-          <TopBar />
+          <TopBar
+            photoCategory={photoCategory}
+            setPhotoCategory={setPhotoCategory}
+          />
         </Grid>
         <Grid item xs={12} className={classes.gridItem}>
           {isLoading ? (
