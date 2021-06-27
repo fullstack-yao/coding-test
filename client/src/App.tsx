@@ -1,5 +1,5 @@
 import { useEffect, useState, FC } from 'react';
-import { makeStyles, Grid } from '@material-ui/core';
+import { makeStyles, Grid, CircularProgress } from '@material-ui/core';
 
 import AppContext from './AppContext';
 import config from './configuration';
@@ -19,7 +19,15 @@ const App: FC = () => {
       width: '100%'
     },
     gridItem: {
-      marginTop: '50px'
+      marginTop: '30px',
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center'
+    },
+    spinner: {
+      display: 'flex',
+      alignItems: 'center',
+      height: '250px'
     }
   }));
 
@@ -32,6 +40,7 @@ const App: FC = () => {
     photoCategory,
     setPhotoCategory
   });
+  const [ isLoading, setIsLoading ] = useState<boolean>(true);
 
   useEffect(() => {
     const loadPhotos = () => {
@@ -44,15 +53,22 @@ const App: FC = () => {
       .then(res => res.json())
       .then(
         result => {
-          console.log(result);
           setAppData({
             photoList: result,
             photoCategory,
             setPhotoCategory
           });
+          setTimeout(() => {
+            setIsLoading(false);
+          }, 500);
         },
         error => {
-          console.log(error);
+          setIsLoading(false);
+          setAppData({
+            photoList: [],
+            photoCategory,
+            setPhotoCategory
+          });
         }
       )
     };
@@ -67,7 +83,13 @@ const App: FC = () => {
           <TopBar />
         </Grid>
         <Grid item xs={12} className={classes.gridItem}>
-          <PhotoCarousel />
+          {isLoading ? (
+            <div className={classes.spinner}>
+              <CircularProgress size={30}/>
+            </div>
+          ) : (
+            <PhotoCarousel />
+          )}
         </Grid>
       </Grid>
     </AppContext.Provider>

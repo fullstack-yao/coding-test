@@ -33,7 +33,6 @@ const ArrowNav: FC<ArrowNavProps> = ({ direction, index, setIndex, setSlideDirec
   }
 
   const arrowClickhandler = (direction: 'left' | 'right') => {
-    console.log(index);
     const increment = direction === 'left' ? -1 : 1;
     const newIndex = (index + increment + photoNum) % photoNum;
     const oppDirection = direction === 'left' ? 'right' : 'left';

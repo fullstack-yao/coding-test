@@ -68,7 +68,7 @@ const PhotoCarousel: FC = (props: any) => {
       {numberIndicatorEnabled &&
         <Grid item xs={12}>
           <Typography variant="subtitle1" className={classes.indicator}>
-            {`${index + 1}/${photoNum}`}
+            {photoNum > 0 ? `${index + 1}/${photoNum}` : '0/0'}
           </Typography>
         </Grid>
       }
