@@ -4,6 +4,7 @@ import BackIcon from "@material-ui/icons/NavigateBefore";
 import ForwardIcon from "@material-ui/icons/NavigateNext";
 
 import config from '../../configuration';
+import { useKeyDownNav } from '../../helpers/hookHelper';
 
 interface ArrowNavProps {
   direction: 'left' | 'right';
@@ -50,6 +51,8 @@ const ArrowNav: FC<ArrowNavProps> = ({
       setSlideIn(true);
     }, 250);
   };
+
+  useKeyDownNav(arrowClickhandler);
 
   return (
     <div>
