@@ -3,6 +3,7 @@ import { makeStyles, Grid } from '@material-ui/core';
 
 import AppContext from './AppContext';
 import config from './configuration';
+import PhotoCarousel from './components/Carousel';
 import TopBar from './components/TopBar';
 
 interface AppDataType {
@@ -66,7 +67,7 @@ const App: FC = () => {
           <TopBar />
         </Grid>
         <Grid item xs={12} className={classes.gridItem}>
-          <div />
+          <PhotoCarousel />
         </Grid>
       </Grid>
     </AppContext.Provider>
