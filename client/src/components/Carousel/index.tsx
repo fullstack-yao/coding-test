@@ -39,6 +39,7 @@ const PhotoCarousel: FC = (props: any) => {
 
   const arrowNavProps = {
     index,
+    photoNum,
     setIndex,
     setSlideDirection,
     setSlideIn
