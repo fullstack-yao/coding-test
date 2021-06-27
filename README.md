@@ -1,6 +1,17 @@
+# Installation:
+```
+$ cd <project_directory>/client
+$ npm install
+$ npm start
+
+$ cd <project_directory>/server
+$ npm install
+$ npm start
+```
+
 # Ownr Developer Candidate Coding Test
 
-Congratulations, you have been asked to complete our Full Stack candidate proficiency test! 
+Congratulations, you have been asked to complete our Full Stack candidate proficiency test!
 
 You will have **48 hours** starting when you receive this test to return the full working source code as a Pull Request against this repository. Please thoroughly read the attached set of instructions. You will be creating a mini web app that uses React, Node & Express. This app will consist of a backend Express server that will deliver a React app to be rendered in the browser. The app that you will be building is a simple image carousel that allows the user to pick between cat or
 shark photos and then cycle through those photos. An example of a running version of this can be seen here:
