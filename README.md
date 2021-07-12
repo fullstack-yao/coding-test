@@ -9,13 +9,10 @@ $ npm install
 $ npm start
 ```
 
-# Ownr Developer Candidate Coding Test
+# React Image Carousel Sample.
 
-Congratulations, you have been asked to complete our Full Stack candidate proficiency test!
-
-You will have **48 hours** starting when you receive this test to return the full working source code as a Pull Request against this repository. Please thoroughly read the attached set of instructions. You will be creating a mini web app that uses React, Node & Express. This app will consist of a backend Express server that will deliver a React app to be rendered in the browser. The app that you will be building is a simple image carousel that allows the user to pick between cat or
-shark photos and then cycle through those photos. An example of a running version of this can be seen here:
-https://founded.media/hiring/videos/cat-shark-app.mp4
+Please thoroughly read the attached set of instructions. You will be creating a mini web app that uses React, Node & Express. This app will consist of a backend Express server that will deliver a React app to be rendered in the browser. The app that you will be building is a simple image carousel that allows the user to pick between cat or
+shark photos and then cycle through those photos.
 
 If you have any questions, require further details or get stuck please do not hesitate to contact Hugh Soong (hugh.soong@rbc.com).
 
@@ -72,22 +69,3 @@ const catsList = [
  'https://founded.media/hiring/photos/cats/4481336172_7f464f180d_b.jpg'
 ];
 ```
-
-## Instructions
-
-### Getting started
-
-- Fork or clone this repository
-- Complete the assignment in a separate branch in your version of the repository
-
-### Submission
-There are several ways to submit your completed assignment:
-
-#### PR Method (Preferred)
-- Create a PR for `your new branch` -> `master` **in your own repository**
-- Do not PR in this repository
-- Email hugh.soong@rbc.com with a link to the PR
-
-#### Zip Method
-- Zip your completed code
-- Email it to hugh.soong@rbc.com
